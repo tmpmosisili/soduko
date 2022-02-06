@@ -33,8 +33,7 @@ public class Soduko {
 
     public static void main(String args[]){
       // displayBoard(playRandom(Soduko.board2,1,0,0));
-      //  displayBoard(playRandom(Soduko.board2,1,0,0));
-    	System.out.println (6/3);
+        displayBoard(playRandom(Soduko.board,1,0,0));
     }
 
     private static int[][] playRandom(int[][] board,int number,int row, int column){
@@ -105,10 +104,11 @@ public class Soduko {
 
     private static boolean isInBlock(int[][] board,int number,int row, int column){
 
-        int rowStart = (row / BLOCK_SIZE);
-        int columnStart = column / BLOCK_SIZE;
-        int rowEnd = ((rowStart + 1) * BLOCK_SIZE) - 1;
-        int columnEnd = ((columnStart + 1) * BLOCK_SIZE) - 1;
+        int rowStart = (row / BLOCK_SIZE) * BLOCK_SIZE;
+        int columnStart = (column / BLOCK_SIZE) * BLOCK_SIZE;
+        int rowEnd = (rowStart + BLOCK_SIZE) - 1;
+        int columnEnd = (columnStart + BLOCK_SIZE) - 1;
+        
         for (int x = rowStart; x <= rowEnd ; x++){
             for (int y = columnStart; y <= columnEnd ; y++) {
                 if (board[x][y] == number) {
